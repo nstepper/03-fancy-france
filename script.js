@@ -1,5 +1,6 @@
 // this code is for generating the password and gives the generator a list of values and characters  
-function generatePassword() {
+function generatePassword() 
+{
   var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var passwordLength = 12;
   var password = "";
@@ -8,12 +9,8 @@ function generatePassword() {
     var randomNumber = Math.floor(Math.random() * chars.length);
     password += chars.substring(randomNumber, randomNumber +1);
   }
-
-
  return password; 
-
 }
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
