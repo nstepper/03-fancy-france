@@ -1,19 +1,38 @@
-// this code is for generating the password and gives the generator a list of values and characters  
-function generatePassword() 
-{
-  var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var passwordLength = 12;
+function generatePassword() {
+  var passwordLength = document.querySelector("#passwordLength").value;
+  var includeSpecial = document.querySelector("#includeSpecial").checked;
+  var includeUpper = document.querySelector("#includeUpper").checked;
+  var includeLower = document.querySelector("#includeLower").checked;
   var password = "";
+  var charset = "";
+  
 
-  for (var i = 0; i <= passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * chars.length);
-    password += chars.substring(randomNumber, randomNumber +1);
+  if (includeSpecial) {
+    charset += "!@#$%^&*()";
   }
- return password; 
+  if (includeUpper) {
+    charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
+  if (includeLower) {
+    charset += "abcdefghijklmnopqrstuvwxyz";
+  }
+  if (charset === "") {
+    charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  }
+
+  for (var i = 0, n = charset.length; i < passwordLength; ++i) {
+    password += charset.charAt(Math.floor(Math.random() * n));
+  }
+
+  return password;
 }
 
-// Get references to the #generate element
+// Get references to the form elements
 var generateBtn = document.querySelector("#generate");
+var passwordLength = document.querySelector("#passwordLength");
+var includeSpecial = document.querySelector("#includeSpecial");
+var includeUpper = document.querySelector("#includeUpper");
+var includeLower = document.querySelector("#includeLower");
 
 // Write password to the #password input
 function writePassword() {
@@ -21,7 +40,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button

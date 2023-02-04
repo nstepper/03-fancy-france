@@ -12,7 +12,7 @@ body,
   margin: 0;
   padding: 0;
 }
-
+/* i just like dark theme sites */
 body {
   background-color: #000;
 }
@@ -72,31 +72,14 @@ header {
   clear: both;
 }
 
-.btn {
-  border: none;
-  background-color: red;
-  border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
-  color: hsl(0, 0%, 100%);
-  display: inline-block;
-  font-size: 22px;
-  line-height: 22px;
-  margin: 16px 16px 16px 20px;
-  padding: 14px 34px;
-  text-align: center;
-  cursor: pointer;
-}
-
 .float-right {
   float: right;
 }
-/* cahnged around the color scheme to look more intersting */
+
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
   display: block;
   width: 100%;
   padding-top: 15px;
@@ -106,14 +89,27 @@ header {
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px double #01ff23;
-  border-radius: 6px;
   resize: none;
   overflow: hidden;
-  background-color: #bb01ff;
+  background-color: #000;
   font-size: 1rem;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  z-index: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  color: #e7e9eb;
+
+  animation: glowing 30s ease-in-out infinite;
 }
+
+@keyframes glowing {
+  0% { box-shadow: 0 0 0px purple; }
+  50% { box-shadow: 0 0 50px purple; }
+  100% { box-shadow: 0 0 0px purple; }
+}
+
 
 @media (max-width: 690px) {
   .btn {
